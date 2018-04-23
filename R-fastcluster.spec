@@ -4,7 +4,7 @@
 #
 Name     : R-fastcluster
 Version  : 1.1.24
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/fastcluster_1.1.24.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fastcluster_1.1.24.tar.gz
 Summary  : Fast Hierarchical Clustering Routines for R and Python
