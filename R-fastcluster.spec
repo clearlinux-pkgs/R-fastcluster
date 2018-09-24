@@ -4,22 +4,17 @@
 #
 Name     : R-fastcluster
 Version  : 1.1.25
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Summary  : Fast Hierarchical Clustering Routines for R and 'Python'
 Group    : Development/Tools
 License  : BSD-2-Clause GPL-2.0
 Requires: R-fastcluster-lib
-Requires: R-flashClust
 BuildRequires : R-flashClust
+BuildRequires : buildreq-R
 BuildRequires : buildreq-distutils3
-BuildRequires : clr-R-helpers
 BuildRequires : numpy
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python3-dev
-BuildRequires : setuptools
 
 %description
 both R and 'Python'. It implements fast hierarchical, agglomerative
@@ -41,11 +36,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532403621
+export SOURCE_DATE_EPOCH=1537797729
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1532403621
+export SOURCE_DATE_EPOCH=1537797729
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
