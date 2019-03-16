@@ -4,21 +4,22 @@
 #
 Name     : R-fastcluster
 Version  : 1.1.25
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Summary  : Fast Hierarchical Clustering Routines for R and 'Python'
 Group    : Development/Tools
 License  : BSD-2-Clause GPL-2.0
-Requires: R-fastcluster-lib
+Requires: R-fastcluster-lib = %{version}-%{release}
 BuildRequires : R-flashClust
 BuildRequires : buildreq-R
 BuildRequires : buildreq-distutils3
 BuildRequires : numpy
 
 %description
-both R and 'Python'. It implements fast hierarchical, agglomerative
-        clustering routines. Part of the functionality is designed as drop-in
+ï»¿fastcluster: Fast hierarchical clustering routines for R and Python
+* Until package version 1.1.23: Â© 2011 Daniel MÃ¼llner <http://danifold.net>
+* All changes from version 1.1.24 on: Â© Google Inc. <http://google.com>
 
 %package lib
 Summary: lib components for the R-fastcluster package.
@@ -36,11 +37,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537797729
+export SOURCE_DATE_EPOCH=1552770447
 
 %install
+export SOURCE_DATE_EPOCH=1552770447
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537797729
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -75,8 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fastcluster|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  fastcluster || :
 
 
 %files
@@ -107,7 +107,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/fastcluster/help/paths.rds
 /usr/lib64/R/library/fastcluster/html/00Index.html
 /usr/lib64/R/library/fastcluster/html/R.css
-/usr/lib64/R/library/fastcluster/libs/symbols.rds
+/usr/lib64/R/library/fastcluster/tests/test_fastcluster.R
 
 %files lib
 %defattr(-,root,root,-)
