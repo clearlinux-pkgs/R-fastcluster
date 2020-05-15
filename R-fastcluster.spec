@@ -4,23 +4,22 @@
 #
 Name     : R-fastcluster
 Version  : 1.1.25
-Release  : 35
+Release  : 36
 URL      : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fastcluster_1.1.25.tar.gz
 Summary  : Fast Hierarchical Clustering Routines for R and 'Python'
 Group    : Development/Tools
 License  : BSD-2-Clause GPL-2.0
 Requires: R-fastcluster-lib = %{version}-%{release}
+Requires: R-flashClust
 BuildRequires : R-flashClust
 BuildRequires : buildreq-R
 BuildRequires : buildreq-distutils3
 BuildRequires : numpy
-BuildRequires : util-linux
 
 %description
-﻿fastcluster: Fast hierarchical clustering routines for R and Python
-* Until package version 1.1.23: © 2011 Daniel Müllner <http://danifold.net>
-* All changes from version 1.1.24 on: © Google Inc. <http://google.com>
+both R and 'Python'. It implements fast hierarchical, agglomerative
+        clustering routines. Part of the functionality is designed as drop-in
 
 %package lib
 Summary: lib components for the R-fastcluster package.
@@ -32,21 +31,22 @@ lib components for the R-fastcluster package.
 
 %prep
 %setup -q -c -n fastcluster
+cd %{_builddir}/fastcluster
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571827018
+export SOURCE_DATE_EPOCH=1589577579
 
 %install
-export SOURCE_DATE_EPOCH=1571827018
+export SOURCE_DATE_EPOCH=1589577579
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
